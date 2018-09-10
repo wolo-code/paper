@@ -89,6 +89,9 @@ and \begin{equation}P'\textsubscript{y}= round(\frac{P\textsubscript{lng} - C\te
 
 These indices must lie within range [0, N)
 
+\subsection{Resolution}
+Taking total span angle A as 0.5\degree\ we get a resolution $\Delta$\textsubscript{d} of about $\sim$2 m
+
 \subsection{Packing}
 P'\textsubscript{x} and P'\textsubscript{y} are 15 bit numbers.
 Thus totally they require 30 bits; and therefor: 3 - base-1024 numbers, to be packed into.
@@ -135,9 +138,6 @@ The above process is reversed to obtain the original co-ordinates of the point P
 and
 
 \begin{equation}P\textsuperscript{`}\textsubscript{lng} = C\textsuperscript{`}\textsubscript{lng} + P'\textsubscript{y} \times \Delta\textsubscript{a} + \frac{\Delta\textsubscript{a}}{2}\end{equation}
-
-\subsection{Resolution}
-Taking total span angle A as 0.5\degree we get a resolution $\Delta$\textsubscript{d} of about $\sim$1.697 m
 
 \subsection{Latidude adujustment}
 Since the relationship between the latitude angle and distance it spans is not uniform across the globe due to the elliptical shape of the surface of Earth\cite{b1}, the span angle A for latitude has to be adjusted based on latitude.
