@@ -1,0 +1,151 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{svg}
+\usepackage{gensymb}
+
+\begin{document}
+
+\title{A method of encoding geographic latitude and longitude into sequence of words}
+
+\author{\IEEEauthorblockN{Ujjwal Singh}
+\IEEEauthorblockA{\\
+\textit{wcodes.org}\\
+Bangalore, India\\
+ujjwal@wcodes.org}
+}
+
+\maketitle
+
+\begin{abstract}
+Geographic coordinates are long complex set of numbers and symbols that are difficult to communicate e.g. 27.9881 N, 86.9250 E. The solution presented here transforms geo coordinates into a sequence of three words preceeded with the name of the locality it belongs to, which is generally a city e.g. Bangalore cat apple tomato. The size of the dictionary of the words used is only 1024 words. Thereby allowing the most simple words to be chosen that are unambiguous and easy to communicate.
+\end{abstract}
+
+\begin{IEEEkeywords}
+Geogrphic latitude longitude, word encoding
+\end{IEEEkeywords}
+
+\section{Introduction}
+It is generally difficult to communicate coordinates, and to manually input them into a computer system. On the other hand words are easy - both to communicate and input; and also to remember. Thus transforming the geograpic co-ordinates into words, from which the original data can be retireved - makes it easy to handle. Of the output code - the name of the locality in the beginning, specifies the central reference point and the next three words specify the exact point relative to it. Additionaly if the locality is implicit, the three words alone suffice.
+\section{Theory}
+Let there be a square grid G of N units.
+
+where, \begin{equation}N = 2\textsuperscript{L} \end{equation}
+
+and, L is Length in bits available for addressing one axis index of the two axes with any 3 of the 1024 words.
+
+Since, \begin{equation}2\textsuperscript{10}  = 1024\end{equation}
+
+\begin{equation}L = \frac {3 \times 10} {2} = 15 \end{equation}
+
+thus, from (1):
+\begin{equation}N = 2\textsuperscript{15} = 32768 \end{equation}
+
+Let there be a city whose boundary is represented by circle S, within which the point P with global co-ordinates (x\textsubscript{g}, y\textsubscript{g}) lies. Let the center of grid G coincide with the center C of the circle S, such that the grid encompases the circle completely.
+
+\subsection{Process} Following is the procedure flow shown in Fig 2
+
+\begin{figure}[!h]
+\centerline{\includesvg{fig1}}
+\caption{Grid G}
+\label{Grid}
+\end{figure}
+
+\begin{figure}[!h]
+\centerline{\includesvg{fig2}}
+\caption{Procedure}
+\label{Procedure}
+\end{figure}
+
+\subsection{Relative position} First we find the relative position of the given point P on the grid G, as P\textsuperscript{`}(x, y))
+
+Let $\Delta$\textsubscript{d} be the minimum distance in meteres we want to resolve.
+$\Delta$\textsubscript{d} is thus the distance between two consecutive integral points of the grid on any given axis.
+
+Then the total distance spanned by each side of the grid is:
+\begin{equation}D = N \times \Delta\textsubscript{d}\end{equation}
+
+Let A be the angle that covers or spans that total distance D.
+
+Simillarly, $\Delta$\textsubscript{a} is that angle that spans that $\Delta$\textsubscript{d}
+
+The grid G's origin C\textsuperscript{`} has global co-ordinates:
+\begin{equation}C\textsuperscript{`}\textsubscript{(lat, lng)} = ( C\textsubscript{lat} - \frac{A}{2}, C\textsubscript{lng} - \frac{A}{2})\end{equation}
+
+As we address only the integral points on the grid G, let P\textsuperscript{`} be the integral point closest to the given point P on the Grid.
+The indices P'\textsubscript{x}, P'\textsubscript{y} of P\textsuperscript{`} will be based on the city it belongs to.
+i.e. the city-center C of the closest city within whose range it falls.
+
+
+Thus, \begin{equation}P'\textsubscript{x} = round(\frac{P\textsubscript{lat} - C\textsuperscript{`}\textsubscript{lat}}{\Delta\textsubscript{a}})\end{equation}
+
+and \begin{equation}P'\textsubscript{y}= round(\frac{P\textsubscript{lng} - C\textsuperscript{`}\textsubscript{lng}}{\Delta\textsubscript{a}})\end{equation}
+
+These indices must lie within range [0, N)
+
+\subsection{Packing}
+P'\textsubscript{x} and P'\textsubscript{y} are 15 bit numbers.
+Thus totally they require 30 bits; and therefor: 3 - base-1024 numbers, to be packed into.
+The relative latitude's (P'\textsubscript{x}) first 10 bits go into the first number of the output code W as W\textsubscript{1}. The relative longitude's (P'\textsubscript{y}) first 10 bits go into the second number W\textsubscript{2}. The remainging 5 bits of the relative latitude go into the first 5 bits of the third number W\textsubscript{3} and finally the longitude's last 5 bits go into its last 5 bits.
+\begin{figure}[htbp]
+\centerline{\includesvg{fig3}}
+\caption{Bits of P' and W variables}
+\label{Packing}
+\end{figure}
+
+\subsection{Mapping}
+
+A number system is based on the progressive series of weighted symbols
+In wcode we use 1024 symbols
+
+The 3 10-bit numbers of the output code are mapped to words from a dictionary of 2\textsuperscript{10} = 1024 weighted words.
+\begin{table}[h!]
+\caption{WCode word table} \begin{center}
+\begin{tabular}{r|c|c|l}
+\textbf{Serial} & \textbf{Decimal} & \textbf{\textit{BInary}} & \textbf{\textit{Word}} \\
+\hline
+1 & 0 & 00000 00000 & apple\\
+\hline
+2 & 1 & 00000 00001 & mango \\
+\hline
+3 & 2 & 00000 00010 & tomato \\
+... & & & \\
+1024 & 1023 & 11111 11111 & zebra
+\end{tabular}
+\end{center} \end{table}
+
+Only the simplest words that have easy pronunciation and spellings, and are distinct are used.
+
+The three numbers of output code W are mapped to the corresponding words from this table as W\textsubscript{1} to W\textsuperscript{`}\textsubscript{1} and so on as W\textsuperscript{`}
+\subsection{City}
+The output word code W\textsuperscript{`} specifies a point of the grid G of a specific city. In order to specify a particular city - the name of the city is added before the 3 words of output code W\textsuperscript{`}.\\
+
+E.g. Bangalore cat apple tomato
+
+\subsection{Reversal}\label{AA}
+The above process is reversed to obtain the original co-ordinates of the point P\textsuperscript{`} from the output code W by:
+\begin{equation}P\textsuperscript{`}\textsubscript{lat} = C\textsuperscript{`}\textsubscript{lat} +  P'\textsubscript{x} \times \Delta\textsubscript{a} + \frac{\Delta\textsubscript{a}}{2}\end{equation}
+
+and
+
+\begin{equation}P\textsuperscript{`}\textsubscript{lng} = C\textsuperscript{`}\textsubscript{lng} + P'\textsubscript{y} \times \Delta\textsubscript{a} + \frac{\Delta\textsubscript{a}}{2}\end{equation}
+
+\subsection{Resolution}
+Taking total span angle A as 0.5\degree we get a resolution $\Delta$\textsubscript{d} of about $\sim$1.697 m
+
+\subsection{Latidude adujustment}
+Since the relationship between the latitude angle and distance it spans is not uniform across the globe due to the elliptical shape of the surface of Earth\cite{b1}, the span angle A for latitude has to be adjusted based on latitude.
+
+\begin{equation}A\textsuperscript{`}\textsubscript{lat} = abs(\frac{cos(P\textsuperscript{`}\textsubscript{lat} \times \frac{\Pi}{180})}{A})\end{equation}
+\\
+\begin{thebibliography}{00}
+\bibitem{b1} G. Eason, B. Noble, and I. N. Sneddon, ``On certain integrals of Lipschitz-Hankel type involving products of Bessel functions,'' Phil. Trans. Roy. Soc. London, vol. A247, pp. 529--551, April 1955.
+\end{thebibliography}
+
+\end{document}
