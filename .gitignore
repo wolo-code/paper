@@ -1,0 +1,6 @@
+**/Archive
+/svg-inkscape
+*.log
+*.aux
+*.synctex.gz
+*.pdf
