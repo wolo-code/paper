@@ -181,7 +181,13 @@ and
 \subsection{Longitude adujustment}
 As the lines of longitude converge at the poles, the distance spanned by them changes based on the latitude. It depends only on the radius of a circle of latitude. The length of a degree of latitude is given by the following equation\cite{b3, b4, b5}
 
-\begin{equation}A\textsuperscript{`}\textsubscript{lat} = abs(\frac{cos(P\textsuperscript{`}\textsubscript{lat} \times \frac{\Pi}{180})}{A})\end{equation}
+\begin{equation}\Delta^\textsuperscript{1}_\textsubscript{lng} = \frac{\pi}{180\degree} \ a \ cos \psi\end{equation}
+where, \begin{equation}tan\psi = \frac{b}{a} \ tan\phi\end{equation}
+
+Then the total span angle A\textsubscript{lng} for a resolution of 2m is given by:
+\begin{equation}A\textsubscript{lng} = 2 \ \frac{N}{\Delta^\textsuperscript{1}_\textsubscript{lng}}\end{equation}
+and
+\begin{equation}\Delta\textsubscript{lng} = 2 \ \frac{1}{\Delta^\textsuperscript{1}_\textsubscript{lng}}\end{equation}
 \\
 \begin{thebibliography}{1}
 \bibitem{b1} Wikipedia.org - World Geodetic System \\
@@ -192,6 +198,8 @@ https://en.wikipedia.org/wiki/Latitude\#Length\_of\_a\_degree\_of\_latitude
 https://doi.org/10.5281/zenodo.35392
 \bibitem{b4} Rapp, Richard H. (1991). "Chapter 3". Geometric Geodesy, Part I. Columbus, OH: Dept. of Geodetic Science and Surveying, Ohio State Univ \\
 http://hdl.handle.net/1811/24333
+\bibitem{b5} Wikipedia.org - Length of a degree of longitude \\
+https://en.wikipedia.org/wiki/Longitude\#Length\_of\_a\_degree\_of\_longitude
 \end{thebibliography}
 
 \end{document}
