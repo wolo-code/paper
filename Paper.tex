@@ -167,13 +167,31 @@ The values of the axes of the WGS84 elipsoid is as given below:
 \end{center} \end{table}
 
 \subsection{Latidude adujustment}
-Since the relationship between the latitude angle and distance it spans is not uniform across the globe due to the elliptical shape of the surface of Earth\cite{b1}, the span angle A for latitude has to be adjusted based on latitude.
+The span angle A for latitude is independant of longitude but has to be adjusted based on latitude.
+Since, the length of a degree of latitude is given by the following equation\cite{b2, b3, b4}
+\begin{equation}\Delta^\textsuperscript{1}_\textsubscript{lat}=\frac{\pi \ a \ cos\phi} {180\degree \sqrt{1-e\textsuperscript{2} \ sin\textsuperscript{2}\phi}}\end{equation}
+where e is eccentricity, given by:
+\begin{equation}e^2 = 2f - f^2\end{equation} when, f is flatenning given by:\begin{equation}f = \frac{a-b}{a}\end{equation}
+
+Then the total span angle A\textsubscript{lat} for a resolution of 2m is given by:
+\begin{equation}A\textsubscript{lat} = 2 \ \frac{N}{\Delta^\textsuperscript{1}_\textsubscript{lat}}\end{equation}
+and
+\begin{equation}\Delta\textsubscript{lat} = 2 \ \frac{1}{\Delta^\textsuperscript{1}_\textsubscript{lat}}\end{equation}
+
+\subsection{Longitude adujustment}
+As the lines of longitude converge at the poles, the distance spanned by them changes based on the latitude. It depends only on the radius of a circle of latitude. The length of a degree of latitude is given by the following equation\cite{b3, b4, b5}
 
 \begin{equation}A\textsuperscript{`}\textsubscript{lat} = abs(\frac{cos(P\textsuperscript{`}\textsubscript{lat} \times \frac{\Pi}{180})}{A})\end{equation}
 \\
 \begin{thebibliography}{1}
 \bibitem{b1} Wikipedia.org - World Geodetic System \\
  https://en.wikipedia.org/wiki/World\_Geodetic\_System\#WGS84
+\bibitem{b2} Wikipedia.org - Length of a degree of latitude \\
+https://en.wikipedia.org/wiki/Latitude\#Length\_of\_a\_degree\_of\_latitude
+\bibitem{b3} Osborne, Peter (2013). "Chapters 5,6". The Mercator Projections. doi:10.5281/zenodo.35392. for LaTeX code and figures \\
+https://doi.org/10.5281/zenodo.35392
+\bibitem{b4} Rapp, Richard H. (1991). "Chapter 3". Geometric Geodesy, Part I. Columbus, OH: Dept. of Geodetic Science and Surveying, Ohio State Univ \\
+http://hdl.handle.net/1811/24333
 \end{thebibliography}
 
 \end{document}
