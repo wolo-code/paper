@@ -110,6 +110,8 @@ In wcode we use 1024 symbols
 The 3 10-bit numbers of the output code are mapped to words from a dictionary of 2\textsuperscript{10} = 1024 weighted words.
 \begin{table}[h!]
 \caption{WCode word table} \begin{center}
+\bgroup
+\def\arraystretch{1.4}%
 \begin{tabular}{r|c|c|l}
 \textbf{Serial} & \textbf{Decimal} & \textbf{\textit{BInary}} & \textbf{\textit{Word}} \\
 \hline
@@ -121,6 +123,7 @@ The 3 10-bit numbers of the output code are mapped to words from a dictionary of
 ... & & & \\
 1024 & 1023 & 11111 11111 & zebra
 \end{tabular}
+\egroup
 \end{center} \end{table}
 
 Only the simplest words that have easy pronunciation and spellings, and are distinct are used.
