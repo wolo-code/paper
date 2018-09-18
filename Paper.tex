@@ -144,13 +144,36 @@ and
 
 \begin{equation}P\textsuperscript{`}\textsubscript{lng} = C\textsuperscript{`}\textsubscript{lng} + P'\textsubscript{y} \times \Delta\textsubscript{a} + \frac{\Delta\textsubscript{a}}{2}\end{equation}
 
+\subsection{Approximation}
+\begin{figure}[htbp]
+\centerline{\includesvg{fig4}}
+\caption{Crossection of spheroid representing Earth}
+\label{Spheroid}
+\end{figure}
+Since the surface of Earth is not a perfect sphere as it is compressed from top and bottom, it is best represented by a spheroid.
+The maths used below assumes this approximation and conforms to World Geodetic System - WGS84\cite{b1}\\
+The values of the axes of the WGS84 elipsoid is as given below:
+\begin{table}[h!]
+\caption{WGS84 axes table}
+\begin{center}
+\bgroup
+\def\arraystretch{1.4}%
+\begin{tabular}{c|c}
+\textbf{Semi-major axis : a} & \textbf{Semi-minor axis : b} \\
+\hline
+6 378 137 . 0 m & 6 356 752 . 314 140 m\\
+\end{tabular}
+\egroup
+\end{center} \end{table}
+
 \subsection{Latidude adujustment}
 Since the relationship between the latitude angle and distance it spans is not uniform across the globe due to the elliptical shape of the surface of Earth\cite{b1}, the span angle A for latitude has to be adjusted based on latitude.
 
 \begin{equation}A\textsuperscript{`}\textsubscript{lat} = abs(\frac{cos(P\textsuperscript{`}\textsubscript{lat} \times \frac{\Pi}{180})}{A})\end{equation}
 \\
-\begin{thebibliography}{00}
-\bibitem{b1} G. Eason, B. Noble, and I. N. Sneddon, ``On certain integrals of Lipschitz-Hankel type involving products of Bessel functions,'' Phil. Trans. Roy. Soc. London, vol. A247, pp. 529--551, April 1955.
+\begin{thebibliography}{1}
+\bibitem{b1} Wikipedia.org - World Geodetic System \\
+ https://en.wikipedia.org/wiki/World\_Geodetic\_System\#WGS84
 \end{thebibliography}
 
 \end{document}
