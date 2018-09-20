@@ -166,12 +166,13 @@ The values of the axes of the WGS84 elipsoid is as given below:
 \egroup
 \end{center} \end{table}
 
+Let e be the eccentricity of the ellipsoid, related to its major and minor axes by:
+\begin{equation}e^2 =  \frac{a^2-b^2}{a^2}\end{equation}
+
 \subsection{Latidude adujustment}
 The span angle A for latitude is independant of longitude but has to be adjusted based on latitude.
 Since, the length of a degree of latitude is given by the following equation\cite{b2, b3, b4}
 \begin{equation}\Delta^\textsuperscript{1}_\textsubscript{lat}=\frac{\pi \ a \ cos\phi} {180\degree \sqrt{1-e\textsuperscript{2} \ sin\textsuperscript{2}\phi}}\end{equation}
-where e is eccentricity, given by:
-\begin{equation}e^2 = 2f - f^2\end{equation} when, f is flatenning given by:\begin{equation}f = \frac{a-b}{a}\end{equation}
 
 Then the total span angle A\textsubscript{lat} for a resolution of 2m is given by:
 \begin{equation}A\textsubscript{lat} = 2 \ \frac{N}{\Delta^\textsuperscript{1}_\textsubscript{lat}}\end{equation}
