@@ -65,34 +65,34 @@ Let there be a city whose boundary is represented by circle S, within which the 
 
 \subsection{Relative position} First we find the relative position of the given point P($\phi$, $\lambda$) on the grid G, as P\textsuperscript{`}(x, y))
 
-Let $\Delta$\textsubscript{d} be the minimum distance in meteres we want to resolve.
-$\Delta$\textsubscript{d} is thus the distance between two consecutive integral points of the grid on any given axis.
+Let $\Delta$\ be the minimum distance in meteres we want to resolve.
+$\Delta$\ is thus the distance between two consecutive integral points of the grid on any given axis.
 
 Then the total distance spanned by each side of the grid is:
-\begin{equation}D = N \times \Delta\textsubscript{d}\end{equation}
+\begin{equation}D = N \times \Delta\end{equation}
 
-Let A be the angle that spans that total distance D.
+Let $\Theta$ be the angle that spans that total distance D.
 
-Simillarly, $\Delta$\textsubscript{a} is that angle that spans that $\Delta$\textsubscript{d}
+Simillarly, $\theta$ is the angle that spans that distance $\Delta$
 
 The grid G's origin C\textsuperscript{`} has global co-ordinates:
-\begin{equation}C\textsuperscript{`}\textsubscript{(lat, lng)} = ( C\textsubscript{lat} - \frac{A}{2}, C\textsubscript{lng} - \frac{A}{2})\end{equation}
+\begin{equation}C\textsuperscript{`}\textsubscript{(lat, lng)} = ( C\textsubscript{lat} - \frac{\Theta}{2}, C\textsubscript{lng} - \frac{\Theta}{2})\end{equation}
 
 As we address only the integral points on the grid G, let P\textsuperscript{`} be the integral point closest to the given point P on the Grid.
 The indices P'\textsubscript{x}, P'\textsubscript{y} of P\textsuperscript{`} will be based on the city it belongs to.
 i.e. the city-center C of the closest city within whose range it falls.
 
 
-Thus, \begin{equation}P'\textsubscript{x} = round(\frac{P\textsubscript{lat} - C\textsuperscript{`}\textsubscript{lat}}{\Delta\textsubscript{a}})\end{equation}
+Thus, \begin{equation}P'\textsubscript{x} = round(\frac{P\textsubscript{lat} - C\textsuperscript{`}\textsubscript{lat}} {\theta})\end{equation}
 
-and \begin{equation}P'\textsubscript{y}= round(\frac{P\textsubscript{lng} - C\textsuperscript{`}\textsubscript{lng}}{\Delta\textsubscript{a}})\end{equation}
+and \begin{equation}P'\textsubscript{y}= round(\frac{P\textsubscript{lng} - C\textsuperscript{`}\textsubscript{lng}} {\theta})\end{equation}
 
 These indices must lie within range [0, N)
 
 \subsection{Resolution}
 Targetting a resolution of 2 m, we set:
-\begin{equation}\Delta\textsubscript{d} = 2m\end{equation}
-The total span D, total span angle A, and $\Delta$\textsubscript{a} is based on this.
+\begin{equation}\Delta = 2 \ m\end{equation}
+The total span D, total span angle $\Theta$, and {$\theta$} are based on this.
 
 \subsection{Packing}
 P'\textsubscript{x} and P'\textsubscript{y} are 15 bit numbers.
@@ -138,11 +138,11 @@ E.g. Bangalore cat apple tomato
 
 \subsection{Reversal}\label{AA}
 The above process is reversed to obtain the original co-ordinates of the point P\textsuperscript{`} from the output code W by:
-\begin{equation}P\textsuperscript{`}\textsubscript{lat} = C\textsuperscript{`}\textsubscript{lat} +  P'\textsubscript{x} \times \Delta\textsubscript{a} + \frac{\Delta\textsubscript{a}}{2}\end{equation}
+\begin{equation}P\textsuperscript{`}\textsubscript{lat} = C\textsuperscript{`}\textsubscript{lat} +  P'\textsubscript{x} \times {\theta} + \frac{\theta}{2}\end{equation}
 
 and
 
-\begin{equation}P\textsuperscript{`}\textsubscript{lng} = C\textsuperscript{`}\textsubscript{lng} + P'\textsubscript{y} \times \Delta\textsubscript{a} + \frac{\Delta\textsubscript{a}}{2}\end{equation}
+\begin{equation}P\textsuperscript{`}\textsubscript{lng} = C\textsuperscript{`}\textsubscript{lng} + P'\textsubscript{y} \times \theta + \frac{\theta}{2}\end{equation}
 
 \subsection{Approximation}
 \begin{figure}[htbp]
@@ -170,24 +170,24 @@ Let e be the eccentricity of the ellipsoid, related to its major and minor axes 
 \begin{equation}e^2 =  \frac{a^2-b^2}{a^2}\end{equation}
 
 \subsection{Latidude adujustment}
-The span angle A for latitude is independant of longitude but has to be adjusted based on latitude.
+The span angle $\Theta$ for latitude is independant of longitude but has to be adjusted based on latitude.
 Since, the length of a degree of latitude is given by the following equation\cite{b2, b3, b4}
 \begin{equation}\Delta^\textsuperscript{1}_\textsubscript{lat}=\frac{\pi \ a \ (1 - e^2)} {180\degree (1 - e\textsuperscript{2} \ sin\textsuperscript{2}\phi)^\frac{3}{2}}\end{equation}
 
-Then the total span angle A\textsubscript{lat} for a resolution of 2m is given by:
-\begin{equation}A\textsubscript{lat} = 2 \ \frac{N}{\Delta^\textsuperscript{1}_\textsubscript{lat}}\end{equation}
-and
-\begin{equation}\Delta\textsubscript{lat} = 2 \ \frac{1}{\Delta^\textsuperscript{1}_\textsubscript{lat}}\end{equation}
+Then the total span angle $\Theta$\textsubscript{lat} for a resolution of 2m is given by:
+\begin{equation}\Theta\textsubscript{lat} = 2 \ \frac{N}{\Delta^\textsuperscript{1}_\textsubscript{lat}}\end{equation}
+and the latitude angle spanning $\Delta$ becomes:
+\begin{equation}\theta\textsubscript{lat} = 2 \ \frac{1}{\Delta^\textsuperscript{1}_\textsubscript{lat}}\end{equation}
 
 \subsection{Longitude adujustment}
 As the lines of longitude converge at the poles, the distance spanned by them changes based on the latitude. It depends only on the radius of a circle of latitude. The length of a degree of latitude is given by the following equation\cite{b3, b4, b5}
 
 \begin{equation}\Delta^\textsuperscript{1}_\textsubscript{lng}=\frac{\pi \ a \ cos\phi} {180\degree \sqrt{1-e\textsuperscript{2} \ sin\textsuperscript{2}\phi}}\end{equation}
 
-Then the total span angle A\textsubscript{lng} for a resolution of 2m is given by:
-\begin{equation}A\textsubscript{lng} = 2 \ \frac{N}{\Delta^\textsuperscript{1}_\textsubscript{lng}}\end{equation}
-and
-\begin{equation}\Delta\textsubscript{lng} = 2 \ \frac{1}{\Delta^\textsuperscript{1}_\textsubscript{lng}}\end{equation}
+Then the total span angle $\Theta$\textsubscript{lng} for a resolution of 2m is given by:
+\begin{equation}\Theta\textsubscript{lng} = 2 \ \frac{N}{\Delta^\textsuperscript{1}_\textsubscript{lng}}\end{equation}
+and the longitude angle spanning $\Delta$ becomes:
+\begin{equation}\theta\textsubscript{lng} = 2 \ \frac{1}{\Delta^\textsuperscript{1}_\textsubscript{lng}}\end{equation}
 \\
 \begin{thebibliography}{1}
 \bibitem{b1} Wikipedia.org - World Geodetic System \\
