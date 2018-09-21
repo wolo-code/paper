@@ -34,8 +34,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.979899"
-     inkscape:cx="291.47987"
-     inkscape:cy="225.30463"
+     inkscape:cx="10.43326"
+     inkscape:cy="244.43969"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -160,26 +160,19 @@
          inkscape:connector-curvature="0" />
     </g>
     <ellipse
-       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.46899998;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.78367281;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path877"
-       cx="95.681381"
-       cy="174.1929"
-       rx="0.44884801"
-       ry="0.44884479" />
+       cx="95.67038"
+       cy="174.13425"
+       rx="0.75"
+       ry="0.74999464" />
     <ellipse
-       ry="0.44884479"
-       rx="0.44884801"
-       cy="191.32642"
-       cx="75.573029"
-       id="ellipse152"
-       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.46899998;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-    <ellipse
-       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.46899998;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="fill:#8c8c8c;fill-opacity:1;stroke:none;stroke-width:0.78367281;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="ellipse154"
-       cx="52.81884"
-       cy="191.32642"
-       rx="0.44884801"
-       ry="0.44884479" />
+       cx="53.119991"
+       cy="191.33234"
+       rx="0.75"
+       ry="0.74999464" />
     <path
        sodipodi:nodetypes="cc"
        inkscape:connector-curvature="0"
@@ -191,5 +184,12 @@
        id="path835"
        d="M 64.038835,191.33793 H 103.58196"
        style="fill:none;stroke:#000000;stroke-width:0.09366256px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <ellipse
+       ry="0.74999464"
+       rx="0.75"
+       cy="191.33234"
+       cx="75.490349"
+       id="ellipse152"
+       style="fill:#3f3f3f;fill-opacity:1;stroke:none;stroke-width:0.78367281;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
   </g>
 </svg>
