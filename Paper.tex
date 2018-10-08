@@ -24,15 +24,15 @@ ujjwal@wcodes.org}
 \maketitle
 
 \begin{abstract}
-Geographic coordinates are long complex set of numbers and symbols that are difficult to communicate e.g. 27.9881 N, 86.9250 E. The solution presented here transforms geo coordinates into a sequence of three words preceeded with the name of the locality it belongs to, which is generally a city e.g. Bangalore cat apple tomato. The size of the dictionary of the words used is only 1024 words. Thereby allowing the most simple words to be chosen that are unambiguous and easy to communicate.
+Geographic coordinates are long complex set of numbers and symbols that are difficult to communicate e.g. 27.9881 N, 86.9250 E. The solution presented here transforms geo coordinates into a sequence of three words preceded with the name of the locality it belongs to, which is generally a city e.g. Bangalore cat apple tomato. The size of the dictionary of the words used is only 1024 words. Thereby allowing the most simple words to be chosen that are unambiguous and easy to communicate.
 \end{abstract}
 
 \begin{IEEEkeywords}
-Geogrphic latitude longitude, word encoding
+Geographic latitude longitude, word encoding
 \end{IEEEkeywords}
 
 \section{Introduction}
-It is generally difficult to communicate coordinates, and to manually input them into a computer system. On the other hand words are easy - both to communicate and input; and also to remember. Thus transforming the geograpic co-ordinates into words, from which the original data can be retireved - makes it easy to handle. Of the output code - the name of the locality in the beginning, specifies the central reference point and the next three words specify the exact point relative to it. Additionaly if the locality is implicit, the three words alone suffice.
+It is generally difficult to communicate coordinates, and to manually input them into a computer system. On the other hand words are easy - both to communicate and input; and also to remember. Thus transforming the geographic co-ordinates into words, from which the original data can be retrieved - makes it easy to handle. Of the output code - the name of the locality in the beginning, specifies the central reference point and the next three words specify the exact point relative to it. Additionally if the locality is implicit, the three words alone suffice.
 \section{Theory}
 Let there be a square grid G of N units.
 
@@ -47,7 +47,7 @@ Since, \begin{equation}2\textsuperscript{10}  = 1024\end{equation}
 thus, from (1):
 \begin{equation}N = 2\textsuperscript{15} = 32768 \end{equation}
 
-Let there be a city whose boundary is represented by circle S, within which the point P with global co-ordinates ($\phi$, $\lambda$) lies. Let the center of grid G coincide with the center C of the circle S, such that the grid encompases the circle completely.
+Let there be a city whose boundary is represented by circle S, within which the point P with global co-ordinates ($\phi$, $\lambda$) lies. Let the center of grid G coincide with the center C of the circle S, such that the grid encompasses the circle completely.
 
 \subsection{Process} Following is the procedure flow shown in Fig 2
 
@@ -65,7 +65,7 @@ Let there be a city whose boundary is represented by circle S, within which the 
 
 \subsection{Relative position} First we find the relative position of the given point P($\phi$, $\lambda$) on the grid G, as P\textsuperscript{`}(x, y))
 
-Let $\Delta$\ be the minimum distance in meteres we want to resolve.
+Let $\Delta$\ be the minimum distance in meters we want to resolve.
 $\Delta$\ is thus the distance between two consecutive integral points of the grid on any given axis.
 
 Then the total distance spanned by each side of the grid is:
@@ -73,7 +73,7 @@ Then the total distance spanned by each side of the grid is:
 
 Let $\Theta$ be the angle that spans that total distance D.
 
-Simillarly, $\theta$ is the angle that spans that distance $\Delta$
+Similarly, $\theta$ is the angle that spans that distance $\Delta$
 
 The grid G's origin C\textsuperscript{`} has global co-ordinates:
 \begin{equation}C\textsuperscript{`}\textsubscript{(lat, lng)} = ( C\textsubscript{lat} - \frac{\Theta}{2}, C\textsubscript{lng} - \frac{\Theta}{2})\end{equation}
@@ -91,7 +91,7 @@ and \begin{equation}P'\textsubscript{y}= round(\frac{P\textsubscript{lng} - C\te
 These indices must lie within range [0, N)
 
 \subsection{Resolution}
-Targetting a resolution of 2 m, we set:
+Targeting a resolution of 2 m, we set:
 \begin{equation}\Delta = 2 \ m\end{equation}
 Thus effectively the resolution on either side is only 1 m.\\
 The total span D, span angles $\Theta$ and {$\theta$} are based on this.
@@ -99,7 +99,7 @@ The total span D, span angles $\Theta$ and {$\theta$} are based on this.
 \subsection{Packing}
 P'\textsubscript{x} and P'\textsubscript{y} are 15 bit numbers.
 Thus totally they require 30 bits; and therefor: 3 - base-1024 numbers, to be packed into.
-The relative latitude's (P'\textsubscript{x}) first 10 bits go into the first number of the output code W as W\textsubscript{1}. The relative longitude's (P'\textsubscript{y}) first 10 bits go into the second number W\textsubscript{2}. The remainging 5 bits of the relative latitude go into the first 5 bits of the third number W\textsubscript{3} and finally the longitude's last 5 bits go into its last 5 bits.
+The relative latitude's (P'\textsubscript{x}) first 10 bits go into the first number of the output code W as W\textsubscript{1}. The relative longitude's (P'\textsubscript{y}) first 10 bits go into the second number W\textsubscript{2}. The remaining 5 bits of the relative latitude go into the first 5 bits of the third number W\textsubscript{3} and finally the longitude's last 5 bits go into its last 5 bits.
 \begin{figure}[htbp]
 \centerline{\includesvg{fig3}}
 \caption{Bits of P' and W variables}
@@ -154,7 +154,7 @@ and
 \end{figure}
 Since the surface of Earth is not a perfect sphere as it is compressed from top and bottom, it is best represented by a spheroid.
 The maths used below assumes this approximation and conforms to World Geodetic System - WGS84\cite{b1}\\
-The values of the axes of the WGS84 elipsoid is as given below:
+The values of the axes of the WGS84 ellipsoid is as given below:
 \begin{table}[h!]
 \caption{WGS84 axes table}
 \begin{center}
@@ -171,8 +171,8 @@ The values of the axes of the WGS84 elipsoid is as given below:
 Let e be the eccentricity of the ellipsoid, related to its major and minor axes by:
 \begin{equation}e^2 =  \frac{a^2-b^2}{a^2}\end{equation}
 
-\subsection{Latidude adujustment}
-The span angle $\Theta$ for latitude is independant of longitude but has to be adjusted based on latitude.
+\subsection{Latitude adjustment}
+The span angle $\Theta$ for latitude is independent of longitude but has to be adjusted based on latitude.
 Since, the length of a degree of latitude is given by the following equation\cite{b2}
 \begin{equation}\Delta^\textsuperscript{1}_\textsubscript{lat}=\frac{\pi \ a \ (1 - e^2)} {180\degree (1 - e\textsuperscript{2} \ sin\textsuperscript{2}\phi)^\frac{3}{2}}\end{equation}
 
@@ -181,7 +181,7 @@ Then the latitude angle $\theta\textsubscript{lat}$ spanning distance $\Delta$ w
 and, the total span angle $\Theta$\textsubscript{lat} becomes:
 \begin{equation}\Theta\textsubscript{lat} = 2 \ \frac{N}{\Delta^\textsuperscript{1}_\textsubscript{lat}}\end{equation}
 
-\subsection{Longitude adujustment}
+\subsection{Longitude adjustment}
 As the lines of longitude converge at the poles, the distance spanned by them changes based on the latitude. It depends only on the radius of a circle of latitude. The length of a degree of latitude is given by the following equation\cite{b3}
 
 \begin{equation}\Delta^\textsuperscript{1}_\textsubscript{lng}=\frac{\pi \ a \ cos\phi} {180\degree \sqrt{1-e\textsuperscript{2} \ sin\textsuperscript{2}\phi}}\end{equation}
