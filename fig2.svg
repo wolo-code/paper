@@ -40,12 +40,12 @@
    borderopacity="1.0"
    pagecolor="#ffffff"
    bordercolor="#666666"
-   inkscape:zoom="2"
-   inkscape:cx="-174.8637"
+   inkscape:zoom="1"
+   inkscape:cx="-130.81607"
    showgrid="false"
    fit-margin-left="10"
    fit-margin-top="10"
-   inkscape:cy="160.69999"
+   inkscape:cy="287.71196"
    fit-margin-bottom="10"
    fit-margin-right="10"
    inkscape:current-layer="layer1"
@@ -164,6 +164,7 @@
    id="tspan889">'</tspan>(x, y)</tspan></text>
 
 
+
 <text
    xml:space="preserve"
    style="font-style:normal;font-weight:normal;font-size:13.33333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
@@ -180,6 +181,7 @@
    id="tspan879">2</tspan>, w<tspan
    style="font-size:64.99999762%;baseline-shift:sub"
    id="tspan877">3</tspan>)</tspan></text>
+
 
 
 <text
@@ -208,6 +210,7 @@
    id="tspan903">3</tspan>)</tspan></text>
 
 
+
 <rect
    style="fill:none;stroke:#000000;stroke-width:1.1774081;stroke-opacity:1"
    height="28.822592"
@@ -224,7 +227,7 @@
    height="28.822592"
    style="fill:none;stroke:#000000;stroke-width:1.1774081;stroke-opacity:1" /><g
    id="g869"
-   transform="translate(0,75.517678)"><g
+   transform="translate(6.0000039,75.517678)"><g
      id="g907"
      transform="translate(0,-0.93934035)"><path
        sodipodi:nodetypes="cc"
@@ -269,6 +272,7 @@
      sodipodi:role="line">City C</tspan></text>
 
 
+
 <rect
    id="rect883"
    x="-205.95822"
@@ -288,8 +292,9 @@
      y="263.95444">Position P(lat, lng)</tspan></text>
 
 
+
 <g
-   transform="translate(0,22.317679)"
+   transform="translate(6.0000039,22.317679)"
    id="g927"><g
      transform="translate(0,-0.93934035)"
      id="g919"><path
@@ -318,7 +323,7 @@
        d="m -188.89045,371.93491 h 4.37108 l -2.18552,4.2576 z"
        style="fill:none;stroke:#000000;stroke-width:2.54317093px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" /></g></g><g
    id="g941"
-   transform="translate(0,-30.882319)"><g
+   transform="translate(6.0000039,-30.882319)"><g
      id="g933"
      transform="translate(0,-0.93934035)"><path
        sodipodi:nodetypes="cc"
@@ -345,7 +350,7 @@
        id="path937"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccc" /></g></g><g
-   transform="translate(0,-84.082316)"
+   transform="translate(6.0000039,-84.082316)"
    id="g955"><g
      transform="translate(0,-0.93934035)"
      id="g947"><path
@@ -392,8 +397,9 @@
    id="tspan876"
    style="font-size:64.99999762%;baseline-shift:super">'</tspan>)</tspan></text>
 
+
 <g
-   transform="translate(0,128.71769)"
+   transform="translate(6.0000039,128.71769)"
    id="g898"><g
      transform="translate(0,-0.93934035)"
      id="g890"><path
