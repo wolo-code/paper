@@ -50,7 +50,6 @@ thus, from (\ref{eq:1}):
 
 Let there be a city whose boundary is represented by circle S, within which the point P with global co-ordinates ($\phi$, $\lambda$) lies. Let the center of grid G coincide with the center C of the circle S, such that the grid encompasses the circle completely.
 
-
 \begin{figure}[H]
 \centerline{\includesvg{fig1}}
 \caption{Grid G}
@@ -58,6 +57,7 @@ Let there be a city whose boundary is represented by circle S, within which the 
 \end{figure}
 
 \subsection{Process} Following is the procedure flow:
+
 \begin{figure}[H]
 \centerline{\includesvg{fig2}}
 \caption{Procedure}
@@ -145,12 +145,15 @@ and
 From eq (\ref{eq:4}) the total addressable points T on the grid G become:
 \begin{equation} T = N \times N = 1,073,741,824 \end{equation}
 
+
 \subsection{Resolution}
 Targeting a resolution of 2 m, we set:
 \begin{equation}\Delta = 2 \ m\end{equation}
 Thus effectively the resolution on either side is only 1 m.\
 And,
 \begin{equation}D = 65.534\ km\end{equation}
+
+\pagebreak
 
 \subsection{Approximation}
 \begin{figure}[htbp]
@@ -195,7 +198,7 @@ As the lines of longitude converge at the poles, the distance spanned by them ch
 Then the longitude angle $\theta$\textsubscript{lng} spanning distance $\Delta$ with a resolution of 2 m, is given by:
 \begin{equation}\theta\textsubscript{lng} = 2 \ \frac{1}{\Delta^\textsuperscript{1}_\textsubscript{lng}}\end{equation}
 and, the total span angle $\Theta\textsubscript{lng}$ becomes:
-\begin{equation}\Theta\textsubscript{lng} = 2 \ \frac{N}{\Delta^\textsuperscript{1}_\textsubscript{lng}}\end{equation}
+\begin{equation}\Theta\textsubscript{lng} = 2 \ \frac{N}{\Delta^\textsuperscript{1}_\textsubscript{lng}}\end{equation}\\
 
 \begin{thebibliography}{1}
 \bibitem{b1}  World Geodetic System - 1984 (WGS84) Manual\\
@@ -206,4 +209,5 @@ https://doi.org/10.5281/zenodo.35392
 http://hdl.handle.net/1811/24333
 \end{thebibliography}
 
+\vspace*{\fill}
 \end{document}
