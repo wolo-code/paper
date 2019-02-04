@@ -45,8 +45,8 @@ Since, \begin{equation} 2\textsuperscript{10} = 1024 \end{equation}
 
 \begin{equation} L = \frac {3 \times 10} {2} = 15 \end{equation}
 
-\begin{equation}N = 2\textsuperscript{15} = 32768 \end{equation}
 thus, from (\ref{eq:1}):
+\begin{equation} \label{eq:4} N = 2\textsuperscript{15} = 32,768 \end{equation}
 
 Let there be a city whose boundary is represented by circle S, within which the point P with global co-ordinates ($\phi$, $\lambda$) lies. Let the center of grid G coincide with the center C of the circle S, such that the grid encompasses the circle completely.
 
@@ -140,6 +140,10 @@ The above process is reversed to obtain the original co-ordinates of the point P
 and
 
 \begin{equation}P'\textsubscript{lng} = C'\textsubscript{lng} + P'\textsubscript{y} \times \theta\end{equation}
+
+\subsection{Total unique addresses}
+From eq (\ref{eq:4}) the total addressable points T on the grid G become:
+\begin{equation} T = N \times N = 1,073,741,824 \end{equation}
 
 \subsection{Resolution}
 Targeting a resolution of 2 m, we set:
