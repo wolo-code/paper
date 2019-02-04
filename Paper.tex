@@ -91,12 +91,6 @@ and \begin{equation}P'\textsubscript{y}= round(\frac{P\textsubscript{lng} - C'\t
 
 These indices must lie within range [0, N)
 
-\subsection{Resolution}
-Targeting a resolution of 2 m, we set:
-\begin{equation}\Delta = 2 \ m\end{equation}
-Thus effectively the resolution on either side is only 1 m.\\
-The total span D, span angles $\Theta$ and {$\theta$} are based on this.
-
 \subsection{Packing}
 P$'$\textsubscript{x} and P$'$\textsubscript{y} are 15 bit numbers.
 Thus totally they require 30 bits; and therefor: 3 - base-1024 numbers, to be packed into.
@@ -146,6 +140,13 @@ The above process is reversed to obtain the original co-ordinates of the point P
 and
 
 \begin{equation}P'\textsubscript{lng} = C'\textsubscript{lng} + P'\textsubscript{y} \times \theta\end{equation}
+
+\subsection{Resolution}
+Targeting a resolution of 2 m, we set:
+\begin{equation}\Delta = 2 \ m\end{equation}
+Thus effectively the resolution on either side is only 1 m.\
+And,
+\begin{equation}D = 65.534\ km\end{equation}
 
 \subsection{Approximation}
 \begin{figure}[htbp]
