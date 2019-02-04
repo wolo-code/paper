@@ -63,7 +63,7 @@ Let there be a city whose boundary is represented by circle S, within which the 
 \label{Procedure}
 \end{figure}
 
-\subsection{Relative position} First we find the relative position of the given point P($\phi$, $\lambda$) on the grid G, as P\textsuperscript{`}(x, y))
+\subsection{Relative position} First we find the relative position of the given point P($\phi$, $\lambda$) on the grid G, as P$'$(x, y))
 
 Let $\Delta$\ be the minimum distance in meters we want to resolve.
 $\Delta$\ is thus the distance between two consecutive integral points of the grid on any given axis.
@@ -75,18 +75,18 @@ Let $\Theta$ be the angle that spans that total distance D.
 
 Similarly, $\theta$ is the angle that spans that distance $\Delta$
 
-The grid G's origin C\textsuperscript{`} has global co-ordinates:
-\begin{equation}C\textsuperscript{`}\textsubscript{(lat, lng)} = ( C\textsubscript{lat} - \frac{\Theta}{2}, C\textsubscript{lng} - \frac{\Theta}{2})\end{equation}
+The grid G's origin C$'$ has global co-ordinates:
+\begin{equation}C'\textsubscript{(lat, lng)} = ( C\textsubscript{lat} - \frac{\Theta}{2},\ C\textsubscript{lng} - \frac{\Theta}{2})\end{equation}
 
-As we address only the integral points on the grid G, let P\textsuperscript{`} be the integral point closest to the given point P on the Grid.
-All points within the square range R are rounded off to this same intersecting point P\textsuperscript{`}.
-The indices P'\textsubscript{x}, P'\textsubscript{y} of P\textsuperscript{`} will be based on the city it belongs to.
+As we address only the integral points on the grid G, let P$'$ be the integral point closest to the given point P on the Grid.
+All points within the square range R are rounded off to this same intersecting point P$'$.
+The indices P$'$\textsubscript{x}, P$'$\textsubscript{y} of P$'$ will be based on the city it belongs to;
 i.e. the city-center C of the closest city within whose range it falls.
 
 
-Thus, \begin{equation}P'\textsubscript{x} = round(\frac{P\textsubscript{lat} - C\textsuperscript{`}\textsubscript{lat}} {\theta})\end{equation}
+Thus, \begin{equation}P'\textsubscript{x} = round(\frac{P\textsubscript{lat} - C'\textsubscript{lat}} {\theta})\end{equation}
 
-and \begin{equation}P'\textsubscript{y}= round(\frac{P\textsubscript{lng} - C\textsuperscript{`}\textsubscript{lng}} {\theta})\end{equation}
+and \begin{equation}P'\textsubscript{y}= round(\frac{P\textsubscript{lng} - C'\textsubscript{lng}} {\theta})\end{equation}
 
 These indices must lie within range [0, N)
 
@@ -97,12 +97,12 @@ Thus effectively the resolution on either side is only 1 m.\\
 The total span D, span angles $\Theta$ and {$\theta$} are based on this.
 
 \subsection{Packing}
-P'\textsubscript{x} and P'\textsubscript{y} are 15 bit numbers.
+P$'$\textsubscript{x} and P$'$\textsubscript{y} are 15 bit numbers.
 Thus totally they require 30 bits; and therefor: 3 - base-1024 numbers, to be packed into.
 The relative latitude's (P'\textsubscript{x}) first 10 bits go into the first number of the output code W as W\textsubscript{1}. The relative longitude's (P'\textsubscript{y}) first 10 bits go into the second number W\textsubscript{2}. The remaining 5 bits of the relative latitude go into the first 5 bits of the third number W\textsubscript{3} and finally the longitude's last 5 bits go into its last 5 bits.
 \begin{figure}[htbp]
 \centerline{\includesvg{fig3}}
-\caption{Bits of P' and W variables}
+\caption{Bits of P$'$ and W variables}
 \label{Packing}
 \end{figure}
 
@@ -132,19 +132,19 @@ The 3 10-bit numbers of the output code are mapped to words from a dictionary of
 
 Only the simplest words that have easy pronunciation and spellings, and are distinct are used.
 
-The three numbers of output code W are mapped to the corresponding words from this table as W\textsubscript{1} to W\textsuperscript{`}\textsubscript{1} and so on as W\textsuperscript{`}
+The three numbers of output code W are mapped to the corresponding words from this table as W\textsubscript{1} to W$'$\textsubscript{1} and so on as W$'$
 \subsection{City}
-The output word code W\textsuperscript{`} specifies a point of the grid G of a specific city. In order to specify a particular city - the name of the city is added before the 3 words of output code W\textsuperscript{`}.\\
+The output word code W$'$ specifies a point of the grid G of a specific city. In order to specify a particular city - the name of the city is added before the 3 words of output code W$'$.\\
 
 E.g. Bangalore cat apple tomato
 
 \subsection{Reversal}\label{AA}
-The above process is reversed to obtain the original co-ordinates of the point P\textsuperscript{`} from the output code W by:
-\begin{equation}P\textsuperscript{`}\textsubscript{lat} = C\textsuperscript{`}\textsubscript{lat} +  P'\textsubscript{x} \times {\theta}\end{equation}
+The above process is reversed to obtain the original co-ordinates of the point P$'$ from the output code W by:
+\begin{equation}P'\textsubscript{lat} = C'\textsubscript{lat} +  P'\textsubscript{x} \times {\theta}\end{equation}
 
 and
 
-\begin{equation}P\textsuperscript{`}\textsubscript{lng} = C\textsuperscript{`}\textsubscript{lng} + P'\textsubscript{y} \times \theta\end{equation}
+\begin{equation}P'\textsubscript{lng} = C'\textsubscript{lng} + P'\textsubscript{y} \times \theta\end{equation}
 
 \subsection{Approximation}
 \begin{figure}[htbp]
