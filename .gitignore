@@ -1,6 +1,6 @@
 **/Archive
 /svg-inkscape
+/Render
 *.log
 *.aux
 *.synctex.gz
-*.pdf
