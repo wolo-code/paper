@@ -2,19 +2,19 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.0"
    width="331.89948"
    height="288.04874"
    id="svg1415"
    sodipodi:docname="fig1.svg"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)">
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
   <metadata
      id="metadata52">
     <rdf:RDF>
@@ -23,7 +23,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -37,12 +37,12 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:window-width="1920"
-     inkscape:window-height="1057"
+     inkscape:window-height="1009"
      id="namedview50"
      showgrid="false"
-     inkscape:zoom="8.0000004"
-     inkscape:cx="210.36681"
-     inkscape:cy="119.90169"
+     inkscape:zoom="2.8284273"
+     inkscape:cx="156.09381"
+     inkscape:cy="64.877044"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
@@ -52,7 +52,10 @@
      fit-margin-right="10"
      fit-margin-bottom="10"
      showguides="false"
-     units="px" />
+     units="px"
+     inkscape:showpageshadow="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050" />
   <defs
      id="defs1417" />
   <g
@@ -72,7 +75,7 @@
       <text
          x="337.86246"
          y="281.71027"
-         style="font-size:10.46080017px;font-family:ArialMT"
+         style="font-size:10.4608px;font-family:ArialMT"
          id="text7">1</text>
       <line
          style="fill:none;stroke:#000000;stroke-width:0.72770786;stroke-linecap:square;stroke-miterlimit:10"
@@ -85,7 +88,7 @@
       <text
          x="362.66525"
          y="281.96027"
-         style="font-size:10.46080017px;font-family:ArialMT"
+         style="font-size:10.4608px;font-family:ArialMT"
          id="text11">2</text>
       <line
          style="fill:none;stroke:#000000;stroke-width:0.72770786;stroke-linecap:square;stroke-miterlimit:10"
@@ -154,7 +157,7 @@
       <text
          x="316.85123"
          y="281.35287"
-         style="font-size:10.46080017px;font-family:ArialMT"
+         style="font-size:10.4608px;font-family:ArialMT"
          id="text51">0</text>
       <line
          stroke-miterlimit="10"
@@ -175,7 +178,7 @@
       <text
          x="314.35123"
          y="258.55069"
-         style="font-size:10.46080017px;font-family:ArialMT"
+         style="font-size:10.4608px;font-family:ArialMT"
          id="text55">1</text>
       <line
          style="fill:none;stroke:#000000;stroke-width:0.72771883;stroke-linecap:square;stroke-miterlimit:10"
@@ -188,7 +191,7 @@
       <text
          x="314.60123"
          y="233.74738"
-         style="font-size:10.46080017px;font-family:ArialMT"
+         style="font-size:10.4608px;font-family:ArialMT"
          id="text59">2</text>
       <line
          style="fill:none;stroke:#000000;stroke-width:0.72771883;stroke-linecap:square;stroke-miterlimit:10"
@@ -272,7 +275,7 @@
            style="fill:#ffffff" />
         <text
            id="text93"
-           style="font-size:10.46080017px;font-family:ArialMT"
+           style="font-size:10.4608px;font-family:ArialMT"
            y="35.211777"
            x="318.33313">32767</text>
       </g>
@@ -284,18 +287,12 @@
          id="polyline103"
          points="153.141,36.417 149.219,25.435 145.295,36.417 149.219,32.025 "
          transform="translate(162.49574,12.843282)" />
-      <rect
-         id="rect78"
-         width="62.429142"
-         height="20.364065"
-         x="315.24115"
-         y="115.8106"
-         style="fill:#ffffff;stroke-width:1.68005216" />
       <text
-         x="348.24463"
-         y="130.66977"
-         style="font-size:20.92140007px;font-family:ArialMT;text-align:center;text-anchor:middle"
-         id="text105">y-axis (lng)</text>
+         x="-160.29575"
+         y="303.41412"
+         style="font-size:20.9214px;font-family:ArialMT;text-align:center;text-anchor:middle"
+         id="text105"
+         transform="rotate(-90)">y-axis (lng)</text>
       <line
          style="fill:none;stroke:#000000;stroke-width:1.85048175;stroke-miterlimit:10"
          id="line109"
@@ -320,18 +317,12 @@
          y2="137.04558"
          id="line54"
          style="fill:none;stroke:#000000;stroke-width:0.72771883;stroke-linecap:square;stroke-miterlimit:10" />
-      <rect
-         style="fill:#ffffff;stroke-width:1.59701419"
-         y="266.36893"
-         x="414.84378"
-         height="17.672123"
-         width="65.003258"
-         id="rect72" />
       <g
-         id="g75">
+         id="g75"
+         transform="translate(0,24)">
         <text
            id="text107"
-           style="font-size:20.92140007px;font-family:ArialMT;text-align:center;text-anchor:middle"
+           style="font-size:20.9214px;font-family:ArialMT;text-align:center;text-anchor:middle"
            y="282.20319"
            x="445.85748">x-axis (lat)</text>
       </g>
@@ -355,7 +346,7 @@
            id="tspan54"
            x="438.09845"
            y="175.59731"
-           style="font-size:13.33333302px">C</tspan></text>
+           style="font-size:13.3333px">C</tspan></text>
       <text
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
@@ -368,16 +359,16 @@
            y="204.92885"
            style="font-size:16px">P'</tspan></text>
       <rect
-         style="fill:#ffffff;stroke-width:1.03604007"
+         style="fill:#ffffff;stroke-width:1.03604"
          id="rect74"
          width="35.178562"
          height="10.056664"
          x="541.48724"
-         y="272.53693" />
+         y="270.53693" />
       <text
          id="text72"
-         style="font-size:10.46080017px;font-family:ArialMT"
-         y="281.21027"
+         style="font-size:10.4608px;font-family:ArialMT"
+         y="279.21027"
          x="543.13885">32767</text>
       <g
          aria-label="∆"
@@ -417,12 +408,12 @@
          x="293.28912"
          style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
          xml:space="preserve"><tspan
-           style="font-size:13.33333302px"
+           style="font-size:13.3333px"
            y="301.7135"
            x="293.28912"
            id="tspan69"
            sodipodi:role="line">C<tspan
-   style="font-size:64.99999762%;baseline-shift:super"
+   style="font-size:65%;baseline-shift:super"
    id="tspan73" /></tspan></text>
       <circle
          r="4.8688498"
@@ -431,7 +422,7 @@
          id="circle72" />
       <text
          xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:10.70029068px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26750728"
+         style="font-style:normal;font-weight:normal;font-size:10.7003px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.267507"
          x="302.30429"
          y="296.14343"
          id="text83"><tspan
@@ -439,7 +430,7 @@
            id="tspan81"
            x="302.30429"
            y="296.14343"
-           style="stroke-width:0.26750728">'</tspan></text>
+           style="stroke-width:0.267507">'</tspan></text>
       <text
          xml:space="preserve"
          style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
@@ -478,40 +469,37 @@
          id="polyline85"
          points="153.141,36.417 149.219,25.435 145.295,36.417 149.219,32.025 "
          transform="matrix(1,0,0,-1,261.74444,262.80274)" />
+      <g
+         id="g1"
+         transform="translate(282.57767,-0.5)">
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-weight:normal;font-size:13.2559px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.331398"
+           x="298.93753"
+           y="167.77521"
+           id="text96"><tspan
+             sodipodi:role="line"
+             id="tspan94"
+             x="298.93753"
+             y="167.77521"
+             style="stroke-width:0.331398">D</tspan></text>
+      </g>
       <polyline
-         id="polyline90"
-         points="153.141,36.417 149.219,25.435 145.295,36.417 149.219,32.025 "
-         transform="translate(154.81645,120.95074)" />
-      <polyline
-         transform="matrix(1,0,0,-1,154.81645,206.80274)"
-         points="153.141,36.417 149.219,25.435 145.295,36.417 149.219,32.025 "
-         id="polyline92" />
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
-         x="299.36194"
-         y="169.49736"
-         id="text96"><tspan
-           sodipodi:role="line"
-           id="tspan94"
-           x="299.36194"
-           y="169.49736">D</tspan></text>
-      <polyline
-         transform="translate(417.43775,119.57574)"
+         transform="translate(428.50882,13.509728)"
          points="153.141,36.417 149.219,25.435 145.295,36.417 149.219,32.025 "
          id="polyline88" />
       <polyline
          id="polyline91"
          points="153.141,36.417 149.219,25.435 145.295,36.417 149.219,32.025 "
-         transform="matrix(1,0,0,-1,417.43775,206.01704)" />
+         transform="matrix(1,0,0,-1,428.32183,311.6536)" />
       <g
          aria-label="Θ"
-         style="font-style:normal;font-weight:normal;font-size:19.47572517px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.48689315"
+         style="font-style:normal;font-weight:normal;font-size:19.4757px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.486893"
          id="text102"
-         transform="matrix(0.70669657,0,0,0.70669657,164.70851,47.648566)">
+         transform="matrix(0.70669657,0,0,0.70669657,165.89601,47.648566)">
         <path
            d="m 562.56209,162.96107 q 0,-3.48053 1.8734,-5.43951 1.8734,-1.95898 4.80237,-1.95898 2.93847,0 4.79285,1.99702 1.86389,1.98751 1.86389,5.23981 0,3.23327 -1.8734,5.21127 -1.8734,1.97801 -4.79285,1.97801 -2.10163,0 -3.68974,-1.04606 -1.5786,-1.05557 -2.28231,-2.70074 -0.69421,-1.65467 -0.69421,-3.28082 z m 1.90193,0.0285 q 0,2.38692 1.29331,3.90846 1.29331,1.51203 3.46151,1.51203 2.13015,0 3.45199,-1.49301 1.32184,-1.50253 1.32184,-4.12718 0,-2.6627 -1.33135,-4.1462 -1.33135,-1.49302 -3.41395,-1.49302 -2.04458,0 -3.41396,1.39792 -1.36939,1.39792 -1.36939,4.441 z m 2.00653,0.60861 v -1.63565 h 5.51559 v 1.63565 z"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;stroke-width:0.48689315"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Arial;-inkscape-font-specification:Arial;stroke-width:0.486893"
            id="path125"
            inkscape:connector-curvature="0" />
       </g>
@@ -543,7 +531,15 @@
            id="tspan892"
            x="497.83881"
            y="175.17137"
-           style="font-size:14.66666698px">R</tspan></text>
+           style="font-size:14.6667px">R</tspan></text>
+      <line
+         stroke-miterlimit="10"
+         x1="577.66547"
+         y1="282.57556"
+         x2="577.66547"
+         y2="43.961418"
+         id="line1"
+         style="fill:none;stroke:#000000;stroke-width:1.83177;stroke-miterlimit:10" />
     </g>
   </g>
 </svg>

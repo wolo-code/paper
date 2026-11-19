@@ -41,16 +41,24 @@ It is generally difficult to communicate coordinates, and to manually input them
 \section{Theory}
 Let there be a square grid G of N units.
 
-where, \begin{equation} N \label{eq:1} = 2\textsuperscript{L} \end{equation}
+where, \begin{equation}
+N \label{eq:1} = 2^{L}
+\end{equation}
 
 and, L is Length in bits available for addressing one axis index of the two axes with any 3 of the 1024 words.
 
-Since, \begin{equation} 2\textsuperscript{10} = 1024 \end{equation}
+Since, \begin{equation}
+2^{10} = 1024
+\end{equation}
 
-\begin{equation} L = \frac {3 \times 10} {2} = 15 \end{equation}
+\begin{equation}
+L = \frac{3 \times 10}{2} = 15
+\end{equation}
 
 thus, from (\ref{eq:1}):
-\begin{equation} \label{eq:4} N = 2\textsuperscript{15} = 32,768 \end{equation}
+\begin{equation}
+\label{eq:4} N = 2^{15} = 32{,}768
+\end{equation}
 
 Let there be a city whose boundary is represented by circle S, within which the point P with global co-ordinates ($\phi$, $\lambda$) lies. Let the center of grid G coincide with the center C of the circle S, such that the grid encompasses the circle completely.
 
@@ -60,6 +68,7 @@ Let there be a city whose boundary is represented by circle S, within which the 
 \label{Grid}
 \end{figure}
 
+\clearpage
 \subsection{Process} Following is the procedure flow:
 
 \begin{figure}[H]
@@ -74,14 +83,18 @@ Let $\Delta$\ be the minimum distance in meters we want to resolve.
 $\Delta$\ is thus the distance between two consecutive integral points of the grid on any given axis.
 
 Then the total distance spanned by each side of the grid is:
-\begin{equation}D = N \times \Delta\end{equation}
+\begin{equation}
+D = N \times \Delta
+\end{equation}
 
 Let $\Theta$ be the angle that spans that total distance D.
 
 Similarly, $\theta$ is the angle that spans that distance $\Delta$
 
 The grid G's origin C$'$ has global co-ordinates:
-\begin{equation}C'\textsubscript{(lat, lng)} = ( C\textsubscript{lat} - \frac{\Theta}{2},\ C\textsubscript{lng} - \frac{\Theta}{2})\end{equation}
+\begin{equation}
+C'_{(\mathrm{lat},\mathrm{lng})} = \left(C_{\mathrm{lat}} - \frac{\Theta}{2},\ C_{\mathrm{lng}} - \frac{\Theta}{2}\right)
+\end{equation}
 
 As we address only the integral points on the grid G, let P$'$ be the integral point closest to the given point P on the Grid.
 All points within the square range R are rounded off to this same intersecting point P$'$.
@@ -89,9 +102,13 @@ The indices P$'$\textsubscript{x}, P$'$\textsubscript{y} of P$'$ will be based o
 i.e. the city-center C of the closest city within whose range it falls.
 
 
-Thus, \begin{equation}P'\textsubscript{x} = round(\frac{P\textsubscript{lat} - C'\textsubscript{lat}} {\theta})\end{equation}
+Thus, \begin{equation}
+P'_x = \operatorname{round}\left(\frac{P_{\mathrm{lat}} - C'_{\mathrm{lat}}}{\theta}\right)
+\end{equation}
 
-and \begin{equation}P'\textsubscript{y}= round(\frac{P\textsubscript{lng} - C'\textsubscript{lng}} {\theta})\end{equation}
+and \begin{equation}
+P'_y = \operatorname{round}\left(\frac{P_{\mathrm{lng}} - C'_{\mathrm{lng}}}{\theta}\right)
+\end{equation}
 
 These indices must lie within range [0, N)
 
@@ -155,23 +172,33 @@ Here, the numeric index identifies the 1-based local anchor tile within that reg
 
 \subsection{Reversal}\label{AA}
 The above process is reversed to obtain the original co-ordinates of the point P$'$ from the output code W by:
-\begin{equation}P'\textsubscript{lat} = C'\textsubscript{lat} +  P'\textsubscript{x} \times {\theta}\end{equation}
+\begin{equation}
+P'_{\mathrm{lat}} = C'_{\mathrm{lat}} + P'_x \times \theta
+\end{equation}
 
 and
 
-\begin{equation}P'\textsubscript{lng} = C'\textsubscript{lng} + P'\textsubscript{y} \times \theta\end{equation}
+\begin{equation}
+P'_{\mathrm{lng}} = C'_{\mathrm{lng}} + P'_y \times \theta
+\end{equation}
 
 \subsection{Total unique addresses}
 From eq (\ref{eq:4}) the total addressable points T on the grid G become:
-\begin{equation} T = N \times N = 1,073,741,824 \end{equation}
+\begin{equation}
+T = N \times N = 1{,}073{,}741{,}824
+\end{equation}
 
 
 \subsection{Resolution}
 Targeting a resolution of 2 m, we set:
-\begin{equation}\Delta = 2 \ m\end{equation}
+\begin{equation}
+\Delta = 2\ \mathrm{m}
+\end{equation}
 Thus effectively the resolution on either side is only 1 m.\
 And,
-\begin{equation}D = 65.534\ km\end{equation}
+\begin{equation}
+D = 65.534\ \mathrm{km}
+\end{equation}
 
 % \pagebreak
 
@@ -198,27 +225,41 @@ The values of the axes of the WGS84 ellipsoid is as given below:
 \end{center} \end{table}
 
 Let e be the eccentricity of the ellipsoid, related to its major and minor axes by:
-\begin{equation}e^2 =  \frac{a^2-b^2}{a^2}\end{equation}
+\begin{equation}
+e^2 = \frac{a^2-b^2}{a^2}
+\end{equation}
 
 \subsection{Latitude adjustment}
 The span angle $\Theta$ for latitude is independent of longitude but has to be adjusted based on latitude.
 Since, the length of a degree of latitude is given by the following equation\cite{b2}
-\begin{equation}\Delta^\textsuperscript{1}_\textsubscript{lat}=\frac{\pi \ a \ (1 - e^2)} {180\degree (1 - e\textsuperscript{2} \ sin\textsuperscript{2}\phi)^\frac{3}{2}}\end{equation}
+\begin{equation}
+\Delta_{\mathrm{lat}}^1 = \frac{\pi\,a\,(1-e^2)}{180^\circ (1-e^2 \sin^2\phi)^{\frac{3}{2}}}
+\end{equation}
 
 Then the latitude angle $\theta\textsubscript{lat}$ spanning distance $\Delta$ with a resolution of 2 m, is given by:
-\begin{equation}\theta\textsubscript{lat} = 2 \ \frac{1}{\Delta^\textsuperscript{1}_\textsubscript{lat}}\end{equation}
+\begin{equation}
+\theta_{\mathrm{lat}} = 2\ \frac{1}{\Delta_{\mathrm{lat}}^1}
+\end{equation}
 and, the total span angle $\Theta$\textsubscript{lat} becomes:
-\begin{equation}\Theta\textsubscript{lat} = 2 \ \frac{N}{\Delta^\textsuperscript{1}_\textsubscript{lat}}\end{equation}
+\begin{equation}
+\Theta_{\mathrm{lat}} = 2\ \frac{N}{\Delta_{\mathrm{lat}}^1}
+\end{equation}
 
 \subsection{Longitude adjustment}
-As the lines of longitude converge at the poles, the distance spanned by them changes based on the latitude. It depends only on the radius of a circle of latitude. The length of a degree of latitude is given by the following equation\cite{b3}
+As the lines of longitude converge at the poles, the distance spanned by them changes based on the latitude. It depends only on the radius of a circle of latitude. The length of a degree of longitude is given by the following equation\cite{b3}
 
-\begin{equation}\Delta^\textsuperscript{1}_\textsubscript{lng}=\frac{\pi \ a \ cos\phi} {180\degree \sqrt{1-e\textsuperscript{2} \ sin\textsuperscript{2}\phi}}\end{equation}
+\begin{equation}
+\Delta_{\mathrm{lng}}^1 = \frac{\pi\,a\,\cos\phi}{180^\circ \sqrt{1-e^2 \sin^2\phi}}
+\end{equation}
 
 Then the longitude angle $\theta$\textsubscript{lng} spanning distance $\Delta$ with a resolution of 2 m, is given by:
-\begin{equation}\theta\textsubscript{lng} = 2 \ \frac{1}{\Delta^\textsuperscript{1}_\textsubscript{lng}}\end{equation}
+\begin{equation}
+\theta_{\mathrm{lng}} = 2\ \frac{1}{\Delta_{\mathrm{lng}}^1}
+\end{equation}
 and, the total span angle $\Theta\textsubscript{lng}$ becomes:
-\begin{equation}\Theta\textsubscript{lng} = 2 \ \frac{N}{\Delta^\textsuperscript{1}_\textsubscript{lng}}\end{equation}\\
+\begin{equation}
+\Theta_{\mathrm{lng}} = 2\ \frac{N}{\Delta_{\mathrm{lng}}^1}
+\end{equation}\\
 
 \begin{thebibliography}{1}
 \bibitem{b1}  World Geodetic System - 1984 (WGS84) Manual\\
