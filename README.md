@@ -1,4 +1,4 @@
 Wolo codes - algorithm
 ===
 
-A method of encoding geographic latitude and longitude into sequence of words
+Wolo Codes for Geographic Grid Addresses and Exact Decimal Coordinates

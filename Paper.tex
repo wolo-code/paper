@@ -11,13 +11,14 @@
 \makeatletter\newif\ifTRP@rerun\makeatother
 \usepackage{gensymb}
 \usepackage{float}
+\usepackage{url}
 
 \pagestyle{plain}
 \pagenumbering{roman}
 
 \begin{document}
 
-\title{A method of encoding geographic latitude and longitude into sequence of words}
+\title{Wolo Codes for Geographic Grid Addresses and Exact Decimal Coordinates}
 
 \author{\IEEEauthorblockN{Ujjwal Singh}
 \IEEEauthorblockA{\\
@@ -29,7 +30,7 @@ ujjwal@wolo.codes}
 \maketitle
 
 \begin{abstract}
-Geographic coordinates are long complex set of numbers and symbols that are difficult to communicate e.g. 27.9881 N, 86.9250 E. The solution presented here transforms geo coordinates into a sequence of three words preceded with the name of the locality it belongs to, which is generally a city (e.g. Bangalore cat apple tomato) or a region with an anchor index for rural and global coverage (e.g. Nepal 1112 candle kiwi mango). The size of the dictionary of the words used is only 1024 words. Thereby allowing the most simple words to be chosen that are unambiguous and easy to communicate.
+The short Wolo Code represents a geographic position by a locality reference and three words from a 1024-word dictionary. The locality reference identifies a city or an indexed regional anchor. The three words resolve to a point on a grid with nominal 2~m spacing. This paper proposes a Precision Wolo Code whose dot suffix identifies a decimal coordinate pair within the existing grid cell.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -37,7 +38,7 @@ Geographic latitude longitude, word encoding
 \end{IEEEkeywords}
 
 \section{Introduction}
-It is generally difficult to communicate coordinates, and to manually input them into a computer system. On the other hand words are easy - both to communicate and input; and also to remember. Thus transforming the geographic co-ordinates into words, from which the original data can be retrieved - makes it easy to handle. Of the output code - the name of the locality in the beginning (a city name, or a region name followed by a local anchor index) specifies the central reference point and the next three words specify the exact point relative to it. Additionally if the locality is implicit, the three words alone suffice.
+Words can make coordinates easier to communicate, enter, and remember. In the short format, the locality reference specifies the grid and the three words identify the rounded grid point. If the locality is implicit, the three words alone suffice to identify that point. Multiple input positions can share the same short code. The proposed precision suffix uses the grid cell to narrow the set of possible decimal coordinates. Exactness refers to the recovery of the encoded values. Measurement accuracy depends on the source.
 \section{Theory}
 Let there be a square grid G of N units.
 
@@ -124,10 +125,7 @@ The relative latitude's (P$'$\textsubscript{x}) first 10 bits go into the first 
 
 \subsection{Mapping}
 
-A number system is based on the progressive series of weighted symbols.
-In wcode we use 1024 symbols
-
-The 3 10-bit numbers of the output code are mapped to words from a dictionary of 2\textsuperscript{10} = 1024 weighted words.
+Wolo maps each 10-bit value to the word at the corresponding zero-based index in the ordered 1,024-word WCode dictionary~\cite{wordlist}. The examples use wordlist version 7.
 \begin{table}[h!]
 \caption{WCode word table} \begin{center}
 \bgroup
@@ -135,13 +133,13 @@ The 3 10-bit numbers of the output code are mapped to words from a dictionary of
 \begin{tabular}{r|c|c|l}
 \textbf{Serial} & \textbf{Decimal} & \textbf{Binary} & \textbf{\textit{Word}} \\
 \hline
-1 & 0 & 00000 00000 & apple\\
+1 & 0 & 00000 00000 & act\\
 \hline
-2 & 1 & 00000 00001 & mango \\
+2 & 1 & 00000 00001 & actor \\
 \hline
-3 & 2 & 00000 00010 & tomato \\
+3 & 2 & 00000 00010 & air \\
 ... & & & \\
-1024 & 1023 & 11111 11111 & zebra
+1024 & 1023 & 11111 11111 & zinc
 \end{tabular}
 \egroup
 \end{center} \end{table}
@@ -150,7 +148,7 @@ Only the simplest words that have easy pronunciation and spellings, and are dist
 
 The three numbers of output code W are mapped to the corresponding words from this table as W\textsubscript{1} to W$'$\textsubscript{1} and so on as W$'$
 \subsection{City and Regional Locality Variants}
-The output word code W$'$ specifies a point relative to a geographic reference origin. Two locality addressing formats are supported:
+The output word code W$'$ specifies a grid point relative to a geographic reference origin. Two locality addressing formats are supported:
 
 \subsubsection{City Variant}
 For locations within a registered city boundary, the name of the city precedes the three words of output code W$'$.
@@ -168,10 +166,10 @@ The code format is:
 E.g. Nepal 1112 candle kiwi mango\\
 (or India 1112 candle kiwi mango)
 
-Here, the numeric index identifies the 1-based local anchor tile within that region's namespace, establishing the local grid origin C$'$. The subsequent three words specify the exact relative point within that tile at the standard 2~m resolution using the identical 30-bit word encoding algorithm and 1024-word dictionary.
+Here, the numeric index identifies the 1-based local anchor tile within that region's namespace, establishing the local grid origin C$'$. The subsequent three words identify the rounded point on the nominal 2~m grid using the same 30-bit packing and 1024-word dictionary.
 
 \subsection{Reversal}\label{AA}
-The above process is reversed to obtain the original co-ordinates of the point P$'$ from the output code W by:
+The above process is reversed to obtain the coordinates of the rounded grid point P$'$ from the output code W:
 \begin{equation}
 P'_{\mathrm{lat}} = C'_{\mathrm{lat}} + P'_x \times \theta
 \end{equation}
@@ -194,10 +192,9 @@ Targeting a resolution of 2 m, we set:
 \begin{equation}
 \Delta = 2\ \mathrm{m}
 \end{equation}
-Thus effectively the resolution on either side is only 1 m.\
-And,
+Rounding to a valid grid point introduces up to half a step of error along each grid axis. The nominal grid span is
 \begin{equation}
-D = 65.534\ \mathrm{km}
+D = 65.536\ \mathrm{km}
 \end{equation}
 
 % \pagebreak
@@ -259,9 +256,45 @@ Then the longitude angle $\theta$\textsubscript{lng} spanning distance $\Delta$ 
 and, the total span angle $\Theta\textsubscript{lng}$ becomes:
 \begin{equation}
 \Theta_{\mathrm{lng}} = 2\ \frac{N}{\Delta_{\mathrm{lng}}^1}
-\end{equation}\\
+\end{equation}
+
+\section{Precision Wolo Code}
+
+A Precision Wolo Code consists of a short Wolo Code, a dot immediately after its third word, and a space-separated suffix. The suffix starts with the decimal precision and ranks the input pair among the decimal positions within the short code's cell. Removing the suffix recovers the short code.
+
+Let $p$ be the greater of the two supplied decimal-place counts, including trailing zeros, and let $S=10^p$. The decoder returns both axes to $p$ places. Use exact decimal or integer arithmetic on the source digits. The precision format uses the existing dictionary order and writes the most significant digit first.
+
+\subsection{Ranking positions within a cell}
+The precision profile for a reference fixes its grid origin, positive angular steps, and any reversible coordinate transformation into the grid frame. The web profile rounds the existing grid origin to 12 decimal places and the steps to 15, then treats those rounded values as exact decimals. The reference and its grid parameters must stay stable for previously issued codes. The transformation preserves the decimal lattice, as with reflection and translation by whole degrees.
+
+For axis $j$, let $o_j$ be its origin, $d_j$ its step, and $i_j$ its short-code index. With halfway ties rounded toward the larger index, the first eligible scaled integer and the number of eligible integers are
+\begin{align}
+L_j &= \left\lceil S\bigl(o_j+(i_j-\tfrac12)d_j\bigr)\right\rceil,\\
+n_j &= \left\lceil S\bigl(o_j+(i_j+\tfrac12)d_j\bigr)\right\rceil-L_j.
+\end{align}
+For the scaled input in the grid frame $(x,y)$, the rank is
+\begin{equation}
+r=(x-L_1)n_2+(y-L_2).
+\end{equation}
+
+\newpage
+\subsection{Encoding the suffix}
+Each axis offset must be in $[0,n_j)$. Encode $p$ in base 512, adding 512 to each digit except the last. Use no leading zero digit except for $p=0$. Then encode $r$ in exactly $k$ base-1024 words, padding with zero digits on the left. Use the least $k\ge0$ with $1024^k\ge n_1n_2$. A single eligible pair requires only the precision field.
+
+\subsection{Decoding and validation}
+The decoder reads the precision field through the first index below 512, computes the cell bounds, and divides the rank by $n_2$. The quotient and remainder give the two offsets. Reject invalid words or precision fields, empty cells, and incorrect rank lengths or values. The decoded pair must invert to valid geographic coordinates and reproduce the short prefix under its named reference. Use latitude and longitude directly when a stable, reversible grid profile is unavailable or grid normalization would discard an input value, as can occur at the poles or the antimeridian.
+
+\subsection{Worked example}
+For the coordinate pair $(28.2101130,83.9901909)$ in decimal degrees, the Nepal 45 short code has grid indices $(14173,28202)$. At $p=7$, the cell has scaled minima $(282101008,839901851)$ and axis counts $(180,203)$. Its rank is $24824$, yielding two rank words after the precision word.
+\begin{center}
+\small\texttt{Nepal 45 judge task tsunami.angle axle dinosaur}
+\end{center}
 
 \begin{thebibliography}{1}
+\bibitem{wordlist} WCode, \emph{WordList}, version 7.
+Public list: \url{https://wcodes.org/wordlist}.
+JSON source: \url{https://github.com/wcodes-org/wordlist},
+commit \texttt{5e5cf4f86f3ad8cd2e95aa1f38f3b22e213d4148}.
 \bibitem{b1}  World Geodetic System - 1984 (WGS84) Manual\\
 https://gis.icao.int/eganp/webpdf/REF08-Doc9674.pdf
 \bibitem{b2} Osborne, Peter (2013). "Chapters 5,6". The Mercator Projections. doi:10.5281/zenodo.35392. for LaTeX code and figures \\
@@ -271,5 +304,5 @@ http://hdl.handle.net/1811/24333
 \end{thebibliography}
 
 \vspace*{\fill}
-\hspace*{\fill} doc v1.2.0
+\hspace*{\fill} doc v1.3.0
 \end{document}
