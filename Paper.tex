@@ -153,18 +153,18 @@ The output word code W$'$ specifies a grid point relative to a geographic refere
 \subsubsection{City Variant}
 For locations within a registered city boundary, the name of the city precedes the three words of output code W$'$.
 \begin{center}
-\textit{\textbackslash{}\textless city\textgreater\ \textless word\textsubscript{1}\textgreater\ \textless word\textsubscript{2}\textgreater\ \textless word\textsubscript{3}\textgreater/}
+\textit{\textbackslash{}\ \textless city\textgreater\ \textless word\textsubscript{1}\textgreater\ \textless word\textsubscript{2}\textgreater\ \textless word\textsubscript{3}\textgreater\ /}
 \end{center}
-E.g. \texttt{\textbackslash{}Bangalore cat apple tomato/}
+E.g. \texttt{\textbackslash{}\ Bangalore cat apple tomato\ /}
 
 \subsubsection{Region Variant}
 For locations outside registered cities, in rural, maritime, wilderness, or global areas, the system provides a named regional anchor reference. The globe is partitioned into half-degree anchor tiles ($360 \times 720$ tiles, each spanning $0.5^\circ \times 0.5^\circ$). Each named geographic region or administrative territory maintains a deterministic, frozen index of its intersecting global anchor tiles.
 The code format is:
 \begin{center}
-\textit{\textbackslash{}\textless region\textgreater\ \textless index\textgreater\ \textless word\textsubscript{1}\textgreater\ \textless word\textsubscript{2}\textgreater\ \textless word\textsubscript{3}\textgreater/}
+\textit{\textbackslash{}\ \textless region\textgreater\ \textless index\textgreater\ \textless word\textsubscript{1}\textgreater\ \textless word\textsubscript{2}\textgreater\ \textless word\textsubscript{3}\textgreater\ /}
 \end{center}
-E.g. \texttt{\textbackslash{}Nepal 1112 candle kiwi mango/}\\
-(or \texttt{\textbackslash{}India 1112 candle kiwi mango/})
+E.g. \texttt{\textbackslash{}\ Nepal 1112 candle kiwi mango\ /}\\
+(or \texttt{\textbackslash{}\ India 1112 candle kiwi mango\ /})
 
 Here, the numeric index identifies the 1-based local anchor tile within that region's namespace, establishing the local grid origin C$'$. The subsequent three words identify the rounded point on the nominal 2~m grid using the same 30-bit packing and 1024-word dictionary.
 
@@ -287,7 +287,7 @@ The decoder reads the precision field through the first index below 512, compute
 \subsection{Worked example}
 For the coordinate pair $(28.2101130,83.9901909)$ in decimal degrees, the Nepal 45 short code has grid indices $(14173,28202)$. At $p=7$, the cell has scaled minima $(282101008,839901851)$ and axis counts $(180,203)$. Its rank is $24824$, yielding two rank words after the precision word.
 \begin{center}
-\small\texttt{\textbackslash{}Nepal 45 judge task tsunami . angle axle dinosaur/}
+\small\texttt{\textbackslash{}\ Nepal 45 judge task tsunami . angle axle dinosaur\ /}
 \end{center}
 
 \begin{thebibliography}{1}
